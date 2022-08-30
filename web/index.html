@@ -1,0 +1,17 @@
+<script>
+  window.addEventListener("message", (event) => {
+    if (event.data.type === "copy") {
+      copytoclip(event.data.data);
+    }
+  });
+
+  function copytoclip(data) {
+    const button = document.createElement('input');
+    button.type = 'text';
+    button.value = data;
+    document.body.appendChild(button);
+    button.select();
+    document.execCommand("copy");
+    document.body.removeChild(button);
+  }
+</script>
